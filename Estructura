@@ -1,0 +1,76 @@
+CREATE TABLE Cliente (
+    ID_Cliente INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nombre_Cliente TEXT NOT NULL,
+    Apellido_Cliente TEXT NOT NULL,
+    Correo_Cliente TEXT NOT NULL UNIQUE,
+    Telefono TEXT NOT NULL
+);
+
+CREATE TABLE Vendedor (
+    ID_Vendedor INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nombre_Vendedor TEXT NOT NULL,
+    Codigo_Vendedor INTEGER NOT NULL UNIQUE
+);
+
+CREATE TABLE Categoria (
+    ID_Categoria INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nombre_Categoria TEXT NOT NULL
+);
+
+CREATE TABLE Producto (
+    ID_Producto INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nombre_Producto TEXT NOT NULL,
+    Descripcion TEXT NOT NULL,
+    Precio REAL NOT NULL CHECK (Precio >= 0),
+    ID_Categoria INTEGER NOT NULL,
+
+    FOREIGN KEY (ID_Categoria)
+        REFERENCES Categoria(ID_Categoria)
+);
+
+CREATE TABLE Bodega (
+    ID_Bodega INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nombre_Bodega TEXT NOT NULL,
+    Direccion TEXT NOT NULL
+);
+
+CREATE TABLE Stock (
+    ID_Producto INTEGER,
+    ID_Bodega INTEGER,
+    Cantidad INTEGER NOT NULL CHECK (Cantidad >= 0),
+
+    PRIMARY KEY (ID_Producto, ID_Bodega),
+
+    FOREIGN KEY (ID_Producto)
+        REFERENCES Producto(ID_Producto),
+
+    FOREIGN KEY (ID_Bodega)
+        REFERENCES Bodega(ID_Bodega)
+);
+
+CREATE TABLE Compra (
+    ID_Compra INTEGER PRIMARY KEY AUTOINCREMENT,
+    Fecha_Compra DATE NOT NULL,
+    ID_Cliente INTEGER NOT NULL,
+    ID_Vendedor INTEGER NOT NULL,
+
+    FOREIGN KEY (ID_Cliente)
+        REFERENCES Cliente(ID_Cliente),
+
+    FOREIGN KEY (ID_Vendedor)
+        REFERENCES Vendedor(ID_Vendedor)
+);
+
+CREATE TABLE Detalle_Compra (
+    ID_Detalle INTEGER PRIMARY KEY AUTOINCREMENT,
+    Cantidad INTEGER NOT NULL CHECK (Cantidad > 0),
+    Precio_Unitario REAL NOT NULL CHECK (Precio_Unitario >= 0),
+    ID_Compra INTEGER NOT NULL,
+    ID_Producto INTEGER NOT NULL,
+
+    FOREIGN KEY (ID_Compra)
+        REFERENCES Compra(ID_Compra),
+
+    FOREIGN KEY (ID_Producto)
+        REFERENCES Producto(ID_Producto)
+);
