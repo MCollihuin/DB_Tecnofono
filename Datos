@@ -1,0 +1,157 @@
+-- CATEGORIAS
+
+INSERT INTO Categoria (Nombre_Categoria) VALUES ('iPhone');
+INSERT INTO Categoria (Nombre_Categoria) VALUES ('Mac');
+INSERT INTO Categoria (Nombre_Categoria) VALUES ('iPad');
+INSERT INTO Categoria (Nombre_Categoria) VALUES ('Apple Watch');
+INSERT INTO Categoria (Nombre_Categoria) VALUES ('Accesorios');
+
+
+-- BODEGAS
+
+INSERT INTO Bodega (Nombre_Bodega, Direccion)
+VALUES ('Bodega Central', 'Av. Apoquindo 1000');
+
+INSERT INTO Bodega (Nombre_Bodega, Direccion)
+VALUES ('Bodega Costanera', 'Andres Bello 2425');
+
+INSERT INTO Bodega (Nombre_Bodega, Direccion)
+VALUES ('Bodega Plaza Vespucio', 'Av. Vicuña Mackenna 7110');
+
+
+-- VENDEDORES
+
+INSERT INTO Vendedor (Nombre_Vendedor, Codigo_Vendedor)
+VALUES ('Carlos Soto', 1001);
+
+INSERT INTO Vendedor (Nombre_Vendedor, Codigo_Vendedor)
+VALUES ('María Díaz', 1002);
+
+INSERT INTO Vendedor (Nombre_Vendedor, Codigo_Vendedor)
+VALUES ('Javier Muñoz', 1003);
+
+INSERT INTO Vendedor (Nombre_Vendedor, Codigo_Vendedor)
+VALUES ('Fernanda Rojas', 1004);
+
+INSERT INTO Vendedor (Nombre_Vendedor, Codigo_Vendedor)
+VALUES ('Daniel Torres', 1005);
+
+INSERT INTO Vendedor (Nombre_Vendedor, Codigo_Vendedor)
+VALUES ('Camila Herrera', 1006);
+
+INSERT INTO Vendedor (Nombre_Vendedor, Codigo_Vendedor)
+VALUES ('Felipe Vargas', 1007);
+
+INSERT INTO Vendedor (Nombre_Vendedor, Codigo_Vendedor)
+VALUES ('Valentina Pérez', 1008);
+
+
+-- CLIENTES
+
+INSERT INTO Cliente VALUES
+(NULL,'Juan','Pérez','juan.perez@email.cl','+56911111111');
+
+INSERT INTO Cliente VALUES
+(NULL,'Andrea','Gonzalez','andrea@email.cl','+56922222222');
+
+INSERT INTO Cliente VALUES
+(NULL,'Cristian','Morales','cristian@email.cl','+56933333333');
+
+INSERT INTO Cliente VALUES
+(NULL,'Paula','Rojas','paula@email.cl','+56944444444');
+
+INSERT INTO Cliente VALUES
+(NULL,'Diego','Vera','diego@email.cl','+56955555555');
+
+INSERT INTO Cliente VALUES
+(NULL,'Ignacia','Silva','ignacia@email.cl','+56966666666');
+
+INSERT INTO Cliente VALUES
+(NULL,'Martín','Navarro','martin@email.cl','+56977777777');
+
+INSERT INTO Cliente VALUES
+(NULL,'Javiera','Araya','javiera@email.cl','+56988888888');
+
+INSERT INTO Cliente VALUES
+(NULL,'Tomás','Flores','tomas@email.cl','+56999999999');
+
+INSERT INTO Cliente VALUES
+(NULL,'Camila','Castro','camila@email.cl','+56912345678');
+
+INSERT INTO Cliente VALUES
+(NULL,'Matías','Leiva','matias@email.cl','+56923456789');
+
+INSERT INTO Cliente VALUES
+(NULL,'Sofía','Mendoza','sofia@email.cl','+56934567890');
+
+INSERT INTO Cliente VALUES
+(NULL,'Benjamín','Ruiz','benjamin@email.cl','+56945678901');
+
+INSERT INTO Cliente VALUES
+(NULL,'Valentina','Fuentes','valentina@email.cl','+56956789012');
+
+INSERT INTO Cliente VALUES
+(NULL,'Vicente','Salinas','vicente@email.cl','+56967890123');
+
+
+-- PRODUCTOS
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('iPhone 16','128GB Negro',999990,1);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('iPhone 16 Pro','256GB Titanio',1399990,1);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('iPhone 16 Pro Max','512GB Titanio',1699990,1);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('MacBook Air M4','13 pulgadas',1299990,2);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('MacBook Pro M4','14 pulgadas',2299990,2);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('iMac M4','24 pulgadas',1799990,2);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('iPad Air','128GB',799990,3);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('iPad Pro','256GB',1299990,3);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('Apple Watch SE','GPS',299990,4);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('Apple Watch Series 10','GPS',499990,4);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('Apple Watch Ultra 2','Titanio',899990,4);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('AirPods 4','USB-C',179990,5);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('AirPods Pro 2','Cancelación de ruido',299990,5);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('Magic Mouse','Bluetooth',99990,5);
+
+INSERT INTO Producto
+(Nombre_Producto,Descripcion,Precio,ID_Categoria)
+VALUES ('Cargador USB-C 20W','Original Apple',24990,5);
