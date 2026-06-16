@@ -161,3 +161,78 @@ La base de datos fue diseñada siguiendo principios de normalización hasta la T
 - Separación de entidades independientes.
 - Uso de claves foráneas para mantener relaciones.
 - Almacenamiento del detalle de venta en una tabla independiente.
+
+  ## Consultas y Análisis
+
+[#consultas-y-análisis](#consultas-y-análisis)
+
+Además del modelo relacional, se desarrollaron consultas SQL orientadas a responder preguntas de negocio típicas de una tienda de tecnología: qué productos rotan más, qué categoría genera más ingresos y quién es el cliente de mayor valor. El código completo de las tres consultas está en [`consultas.sql`](./consultas.sql).
+
+### 1. Top 5 productos más vendidos
+
+[#1-top-5-productos-más-vendidos](#1-top-5-productos-más-vendidos)
+
+**Pregunta de negocio:** ¿Qué productos deberían priorizarse en reposición de stock?
+
+Consulta con `JOIN` entre `Producto` y `Detalle_Compra`, agrupando por producto y ordenando por cantidad vendida ([ver código](./consultas.sql#L1-L9)).
+
+**Resultado:**
+
+| Producto | Unidades Vendidas |
+|---|---|
+| [Producto 1] | [N] |
+| [Producto 2] | [N] |
+| [Producto 3] | [N] |
+| [Producto 4] | [N] |
+| [Producto 5] | [N] |
+
+**Conclusión:** [Ej: El producto más vendido fue X con N unidades, lo que sugiere priorizar su stock en bodega y evaluar promociones cruzadas con accesorios relacionados.]
+
+---
+
+### 2. Ventas totales por categoría
+
+[#2-ventas-totales-por-categoría](#2-ventas-totales-por-categoría)
+
+**Pregunta de negocio:** ¿Qué categoría de productos genera más ingresos para la tienda?
+
+Consulta con doble `JOIN` (`Categoria` → `Producto` → `Detalle_Compra`), agregando ingresos totales por categoría ([ver código](./consultas.sql#L11-L20)).
+
+**Resultado:**
+
+| Categoría | Total Ventas |
+|---|---|
+| [iPhone] | $[N] |
+| [Mac] | $[N] |
+| [iPad] | $[N] |
+| [Apple Watch] | $[N] |
+| [Accesorios] | $[N] |
+
+**Conclusión:** [Ej: La categoría X concentra el mayor volumen de ventas, lo que indica dónde enfocar esfuerzos comerciales y de inventario.]
+
+---
+
+### 3. Cliente con mayor gasto total
+
+[#3-cliente-con-mayor-gasto-total](#3-cliente-con-mayor-gasto-total)
+
+**Pregunta de negocio:** ¿Quién es el cliente más valioso para un programa de fidelización?
+
+Consulta con `JOIN` entre `Cliente`, `Compra` y `Detalle_Compra`, sumando el gasto total por cliente y ordenando de forma descendente ([ver código](./consultas.sql#L22-L34)).
+
+**Resultado:**
+
+| Cliente | Total Gastado |
+|---|---|
+| [Nombre Cliente] | $[N] |
+
+**Conclusión:** [Ej: El cliente X representa el mayor valor histórico, un candidato ideal para estrategias de retención o beneficios VIP.]
+
+---
+
+### Herramientas utilizadas para el análisis
+
+[#herramientas-utilizadas-para-el-análisis](#herramientas-utilizadas-para-el-análisis)
+
+- SQLite + DB Browser for SQLite para ejecución de consultas
+- Consultas con `JOIN`, `GROUP BY`, funciones de agregación (`SUM`) y `ORDER BY`/`LIMIT` para responder preguntas de negocio concretas
